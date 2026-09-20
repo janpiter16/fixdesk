@@ -12,6 +12,7 @@ import CustomersPage from './pages/CustomersPage'
 import KanbanPage from './pages/KanbanPage'
 import InventoryPage from './pages/InventoryPage'
 import InvoicePage from './pages/InvoicePage'
+import WarrantyPage from './pages/WarrantyPage'
 
 function ProtectedRoute({ children }) {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated)
@@ -40,6 +41,7 @@ function App() {
           <Route path="customers" element={<CustomersPage />} />
           <Route path="kanban" element={<KanbanPage />} />
           <Route path="inventory" element={<InventoryPage />} />
+          <Route path="warranty" element={<WarrantyPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

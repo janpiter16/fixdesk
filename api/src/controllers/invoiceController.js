@@ -43,9 +43,10 @@ export const createInvoice = async (req, res) => {
       ]
     )
 
-    // Update ticket status to completed / ready_pickup
+    // Update ticket status to completed / ready_pickup and set warranty
+    // Default 30 days warranty
     await pool.query(
-      "UPDATE tickets SET status = 'completed', final_cost = $1 WHERE id = $2",
+      "UPDATE tickets SET status = 'completed', final_cost = $1, warranty_months = 1, warranty_expires_at = CURRENT_TIMESTAMP + INTERVAL '30 days' WHERE id = $2",
       [totalAmount, ticket_id]
     )
 

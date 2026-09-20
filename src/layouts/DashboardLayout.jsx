@@ -53,6 +53,12 @@ function DashboardLayout() {
                 >
                   Spare Part
                 </Link>
+                <Link
+                  to="/warranty"
+                  className="text-neutral-300 hover:text-neutral-50 px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Garansi
+                </Link>
               </div>
             </div>
 
