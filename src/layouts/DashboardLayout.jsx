@@ -41,6 +41,18 @@ function DashboardLayout() {
                 >
                   Pelanggan
                 </Link>
+                <Link
+                  to="/kanban"
+                  className="text-neutral-300 hover:text-neutral-50 px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Kanban
+                </Link>
+                <Link
+                  to="/inventory"
+                  className="text-neutral-300 hover:text-neutral-50 px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Spare Part
+                </Link>
               </div>
             </div>
 

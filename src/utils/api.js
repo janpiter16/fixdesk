@@ -51,4 +51,10 @@ export const deviceApi = {
   getCategories: () => apiClient.get('/devices/categories'),
 }
 
+export const partApi = {
+  getAll: () => apiClient.get('/parts'),
+  create: (data) => apiClient.post('/parts', data),
+  update: (id, data) => apiClient.patch(`/parts/${id}`, data),
+}
+
 export default apiClient

@@ -9,6 +9,8 @@ import DashboardPage from './pages/DashboardPage'
 import TicketsPage from './pages/TicketsPage'
 import TicketDetailPage from './pages/TicketDetailPage'
 import CustomersPage from './pages/CustomersPage'
+import KanbanPage from './pages/KanbanPage'
+import InventoryPage from './pages/InventoryPage'
 
 function ProtectedRoute({ children }) {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated)
@@ -34,6 +36,8 @@ function App() {
           <Route path="tickets" element={<TicketsPage />} />
           <Route path="tickets/:id" element={<TicketDetailPage />} />
           <Route path="customers" element={<CustomersPage />} />
+          <Route path="kanban" element={<KanbanPage />} />
+          <Route path="inventory" element={<InventoryPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
