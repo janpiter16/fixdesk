@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage'
 import DashboardLayout from './layouts/DashboardLayout'
 import DashboardPage from './pages/DashboardPage'
 import TicketsPage from './pages/TicketsPage'
+import TicketDetailPage from './pages/TicketDetailPage'
 import CustomersPage from './pages/CustomersPage'
 
 function ProtectedRoute({ children }) {
@@ -31,6 +32,7 @@ function App() {
         >
           <Route index element={<DashboardPage />} />
           <Route path="tickets" element={<TicketsPage />} />
+          <Route path="tickets/:id" element={<TicketDetailPage />} />
           <Route path="customers" element={<CustomersPage />} />
         </Route>
       </Routes>
