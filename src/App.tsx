@@ -1,20 +1,40 @@
 import React from 'react'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import useAuthStore from './stores/authStore'
+
+import TrackingPage from './pages/TrackingPage'
+import LoginPage from './pages/LoginPage'
+import DashboardLayout from './layouts/DashboardLayout'
+import DashboardPage from './pages/DashboardPage'
+import TicketsPage from './pages/TicketsPage'
+import CustomersPage from './pages/CustomersPage'
+
+function ProtectedRoute({ children }) {
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated)
+  return isAuthenticated ? children : <Navigate to="/login" replace />
+}
 
 function App() {
   return (
-    <div className="min-h-screen bg-neutral-50 text-neutral-900">
-      <header className="bg-neutral-900 text-neutral-50 p-4">
-        <h1 className="text-xl font-bold">FixDesk</h1>
-      </header>
-      <main className="p-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white p-6 rounded-lg shadow-sm border border-neutral-200">
-            <h2 className="text-lg font-semibold mb-2">Sistem Manajemen Tiket Servis</h2>
-            <p className="text-neutral-600">Bengkel & Elektronik</p>
-          </div>
-        </div>
-      </main>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/track/:token" element={<TrackingPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <DashboardLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<DashboardPage />} />
+          <Route path="tickets" element={<TicketsPage />} />
+          <Route path="customers" element={<CustomersPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
