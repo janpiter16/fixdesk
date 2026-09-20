@@ -3,6 +3,7 @@ import cors from 'cors'
 import helmet from 'helmet'
 import rateLimit from 'express-rate-limit'
 import dotenv from 'dotenv'
+import routes from './routes/index.js'
 
 dotenv.config()
 
@@ -23,6 +24,8 @@ app.use('/api/', limiter)
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() })
 })
+
+app.use('/api', routes)
 
 app.use((err, req, res, next) => {
   console.error(err.stack)
