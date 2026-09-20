@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { ticketApi } from '../utils/api'
+import { printThermalReceipt } from '../utils/print'
 
 const statusOptions = [
   { value: 'pending', label: 'Pending' },
@@ -54,8 +55,9 @@ function TicketDetailPage() {
   }
 
   const handlePrintReceipt = () => {
-    // TODO: implement print functionality
-    console.log('Print receipt')
+    if (ticket) {
+      printThermalReceipt(ticket)
+    }
   }
 
   if (loading) {
@@ -96,13 +98,13 @@ function TicketDetailPage() {
             onClick={handlePrintReceipt}
             className="px-4 py-2 border border-neutral-300 text-neutral-700 rounded-md hover:bg-neutral-50"
           >
-            Cetak QR
+            Cetak Struk Thermal / QR
           </button>
           <button
-            onClick={handleAssign}
-            className="px-4 py-2 bg-signal-inprogress text-white rounded-md font-medium hover:bg-blue-600"
+            onClick={() => navigate(`/tickets/${id}/invoice`)}
+            className="px-4 py-2 bg-signal-completed text-white rounded-md font-medium hover:bg-emerald-600"
           >
-            Assign Teknisi
+            Bayar / Kasir
           </button>
         </div>
       </div>

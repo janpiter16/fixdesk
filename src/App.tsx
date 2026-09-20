@@ -11,6 +11,7 @@ import TicketDetailPage from './pages/TicketDetailPage'
 import CustomersPage from './pages/CustomersPage'
 import KanbanPage from './pages/KanbanPage'
 import InventoryPage from './pages/InventoryPage'
+import InvoicePage from './pages/InvoicePage'
 
 function ProtectedRoute({ children }) {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated)
@@ -35,6 +36,7 @@ function App() {
           <Route index element={<DashboardPage />} />
           <Route path="tickets" element={<TicketsPage />} />
           <Route path="tickets/:id" element={<TicketDetailPage />} />
+          <Route path="tickets/:id/invoice" element={<InvoicePage />} />
           <Route path="customers" element={<CustomersPage />} />
           <Route path="kanban" element={<KanbanPage />} />
           <Route path="inventory" element={<InventoryPage />} />
