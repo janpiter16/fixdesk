@@ -57,4 +57,4 @@ export const partApi = {
   update: (id, data) => apiClient.patch(`/parts/${id}`, data),
 }
 
-export default apiClient
+export { apiClient }
